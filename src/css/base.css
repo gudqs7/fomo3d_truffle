@@ -1,0 +1,50 @@
+.ethglitch {
+  font-weight: bold; }
+
+.headtimer {
+  display: block;
+  font-size: 34px; }
+  .headtimer a {
+    text-decoration: underline;
+    color: #f8f9fa;
+    font-weight: 400; }
+
+[type=reset], [type=submit], button, html [type=button] {
+  -webkit-appearance: initial !important; }
+
+#quotes {
+  display: none; }
+  #quotes.active {
+    display: block; }
+
+.cprogress {
+  display: none; }
+  .cprogress .active {
+    display: initial; }
+
+.distribution {
+  text-align: center; }
+  .distribution .lead {
+    font-size: 15px; }
+  .distribution .team {
+    border-right: 2px #565656 solid; }
+    .distribution .team:last-child {
+      border-right: 0; }
+    .distribution .team img {
+      width: 75%; }
+    .distribution .team p {
+      font-size: 12px; }
+
+.skills {
+  font-size: 10px;
+  display: block;
+  text-align: left;
+  float: left;
+  width: 100%;
+  background: rgba(80, 88, 97, 0.62); }
+  .skills .perc {
+    float: right;
+    padding-right: 2px; }
+  .skills .label {
+    padding-left: 2px;
+    float: left; }

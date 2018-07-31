@@ -1,0 +1,11 @@
+{
+  "server": {
+    "baseDir": [
+      "./src",
+      "./build/contracts"
+    ]
+  },
+  "middleware": {
+    "0": null
+  }
+}

@@ -1,0 +1,280 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
+
+.ghostframe {
+  background: #ededeb;
+}
+.ghostframe .title {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.ghostframe .title h1 {
+  margin: 30px 0px 0px 0px;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-weight: 400;
+  color: #3d3d3d;
+}
+.ghostframe .title h2 {
+  margin: 10px 0px 0px 0px;
+  font-size: 18px;
+  color: #8b8b8b;
+  font-weight: 400;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+}
+.ghostframe .ui {
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 50px;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  color: white;
+  box-shadow: none;
+}
+.ghostframe .ui ul {
+  margin: 0px 30px 10px 0px;
+  padding: 0;
+  list-style-type: none;
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 20px;
+}
+.ghostframe .ui .drop {
+  opacity: 0;
+  width: 300px;
+  height: 8rem;
+  background: #448f72;
+  position: absolute;
+  color: white;
+  /*! bottom: 200px; */
+  padding: 12px 30px 21px 30px;
+  transition-property: top, opacity;
+  transition-duration: 1s,1s;
+  top: 0rem;
+}
+.ghostframe .ui .drop p {
+  color: #f8fbfa;
+}
+.ghostframe .ui .drop-container {
+  opacity: 0;
+  width: 300px;
+  height: 10rem;
+  background: #448f72;
+  position: absolute;
+  color: white;
+  /*! bottom: 200px; */
+  padding: 12px 30px 21px 30px;
+  transition-property: top, opacity;
+  transition-duration: 1s;
+  top: 4rem;
+}
+.ghostframe .ui .drop-container p {
+  color: #f8fbfa;
+}
+.ghostframe .ui_box {
+  width: 300px;
+  height: 19rem;
+  position: relative;
+  background: #343a40;
+  float: left;
+  box-shadow: -1px 0px rgba(255, 255, 255, 0.07);
+  cursor: pointer;
+  transform: scale(1);
+  transition-property: transform, background;
+  transition-duration: 0.3s;
+}
+.ghostframe .ui_box__inner {
+  padding: 25px;
+}
+.ghostframe .ui_box__inner span {
+  font-size: 36px;
+  font-weight: 700;
+}
+.ghostframe .ui_box__inner .progress {
+  width: 100%;
+  margin-top: 10px;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+}
+.ghostframe .ui_box__inner .progress_graph {
+  float: right;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  width: 85px;
+  text-align: center;
+  position: relative;
+  padding-left: 20px;
+  top: 24px;
+}
+.ghostframe .ui_box__inner .progress_graph__bar--1 {
+  width: 10px;
+  height: 20px;
+  background: #00a42a;
+  float: left;
+  margin-right: 10px;
+  position: relative;
+  bottom: -10px;
+  -webkit-animation: graph 1s;
+}
+.ghostframe .ui_box__inner .progress_graph__bar--2 {
+  width: 10px;
+  -webkit-animation: graph2 1s;
+  height: 30px;
+  float: left;
+  margin-right: 10px;
+  background: #00a42a;
+}
+.ghostframe .ui_box__inner .progress_graph__bar--3 {
+  width: 10px;
+  height: 24px;
+  margin-right: 10px;
+  -webkit-animation: graph3 1s;
+  background: #00a42a;
+  float: left;
+  position: relative;
+  bottom: -6px;
+}
+.ghostframe .ui_box__inner .progress_graph__bar--4 {
+  width: 10px;
+  height: 14px;
+  -webkit-animation: graph4 1s;
+  bottom: -16px;
+  position: relative;
+  background: #00a42a;
+  float: left;
+}
+.ghostframe .ui_box__inner .progress_bar {
+  height: 6px;
+  float: left;
+  width: 10%;
+  background: #00a42a;
+  -webkit-animation: bar 2s;
+}
+.ghostframe .ui_box__inner .progress_bar--two {
+  height: 6px;
+  float: left;
+  width: 78%;
+  background: #00a42a;
+  -webkit-animation: bar2 2s;
+}
+.ghostframe .ui_box h2 {
+  font-weight: normal;
+  font-size: 16px;
+  margin: -4px 0px 3px 0px;
+}
+.ghostframe .ui_box p {
+  font-size: 1rem;
+  color: #b6b6b6;
+  clear: left;
+  font-weight: 300;
+  /* width: 160px; */
+  margin: 2px 0px 15px 0px;
+}
+.ghostframe .ui_box i {
+	font-size: 3rem;
+}
+.ghostframe .ui_box span {
+	font-size: 3rem;
+}
+.ghostframe .ui_box:hover {
+  background: #4ba361;
+  transform: scale(1.1);
+  transition-property: transform, background;
+  transition-duration: 0.3s;
+  position: relative;
+  z-index: 1;
+}
+.ui_box:hover > .ui_box__inner p {
+  color: #b3dacb;
+}
+.ui_box:hover > .drop {
+  transition-property: top, opacity;
+  transition-duration: 1s,1s;
+  top: -7.8rem;
+  opacity: 1;
+}
+.ui_box:hover > .drop .droptext {
+  filter: text-shadow(0 0 2px #190019) drop-shadow(0 0 1px #494949) ;
+  -webkit-filter: text-shadow(0 0 2px #190019) drop-shadow(0 0 1px #494949) ;
+}
+
+.ui_box:hover > .drop .arrow {
+  transition-property: transform;
+  transition-duration: 1s;
+  transform: rotate(765deg);
+}
+.ui_box:hover > .ui_box__inner .progress_graph > div {
+  background: white;
+}
+.ui_box:hover > .ui_box__inner .progress .progress_bar, .ui_box:hover > .ui_box__inner .progress .progress_bar--two {
+  background: white;
+}
+.stat_left {
+  float: left;
+}
+.arrow {
+  width: 4px;
+  height: 4px;
+  transition-property: transform;
+  transition-duration: 1s;
+  transform: rotate(45deg);
+  -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border-top: 1px solid #cdead3;
+  border-right: 1px solid #cdead3;
+  float: right;
+  position: relative;
+  top: -24px;
+  right: 0px;
+}
+@keyframes bar {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 58%;
+  }
+}
+@keyframes bar2 {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 78%;
+  }
+}
+@keyframes graph {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 20px;
+  }
+}
+@keyframes graph2 {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 30px;
+  }
+}
+@keyframes graph3 {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 24px;
+  }
+}
+@keyframes graph4 {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 13px;
+  }
+}
+.ghosttron-spacing {
+ padding:0rem 0rem;
+ margin-bottom:0rem;
+ background-color:rgba(0, 0, 0, 0.0);
+ border-radius:.0;
+}
