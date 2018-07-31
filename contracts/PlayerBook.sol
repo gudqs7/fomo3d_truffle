@@ -42,7 +42,7 @@ contract PlayerBook is PlayerBookInterface {
     using SafeMath for uint256;
 
     address private Jekyll_Island_Inc;
-    TeamJustInterface private teamJust;// = new TeamJust();
+    TeamJustInterface public teamJust;// = new TeamJust();
 
     MSFun.Data private msData;
 
@@ -136,7 +136,7 @@ contract PlayerBook is PlayerBookInterface {
 
     modifier isRegisteredGame()
     {
-//        require(gameIDs_[msg.sender] != 0);
+        require(gameIDs_[msg.sender] != 0);
         _;
     }
     //==============================================================================
@@ -593,24 +593,22 @@ contract PlayerBook is PlayerBookInterface {
     //   _ _ _|_    _   .
     //  _\(/_ | |_||_)  .
     //=============|================================================================
-    function addGame(address _gameAddress, string _gameNameStr)
+    function addGame(address _gameAddress, bytes32 _gameNameStr)
     onlyDevs()
-    public
+    external
     {
         require(gameIDs_[_gameAddress] == 0, "derp, that games already been registered");
 
         if (multiSigDev("addGame") == true)
         {deleteProposal("addGame");
             gID_++;
-            bytes32 _name = _gameNameStr.nameFilter();
+            bytes32 _name = _gameNameStr;
             gameIDs_[_gameAddress] = gID_;
             gameNames_[_gameAddress] = _name;
             games_[gID_] = PlayerBookReceiverInterface(_gameAddress);
 
             games_[gID_].receivePlayerInfo(1, plyr_[1].addr, plyr_[1].name, 0);
-            games_[gID_].receivePlayerInfo(2, plyr_[2].addr, plyr_[2].name, 0);
-            games_[gID_].receivePlayerInfo(3, plyr_[3].addr, plyr_[3].name, 0);
-            games_[gID_].receivePlayerInfo(4, plyr_[4].addr, plyr_[4].name, 0);
+
         }
     }
 

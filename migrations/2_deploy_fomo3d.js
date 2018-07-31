@@ -45,6 +45,7 @@ module.exports = function (deployer) {
         return FoMo3Dlong.deployed();
     }).then(function (fomo) {
         fomo.setPlayerBook(player.address);
+        player.addGame(fomo.address, 'fomo');
     });
 
 };
