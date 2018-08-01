@@ -3,11 +3,12 @@
 
 经过本人吐血试验折腾, 弄好了一次性编译部署 (没啥必要, 但我就是喜欢死磕)
 
-最后郑重声明, 此版本功能不完善(有地方我没弄好), playerBook 那里 addGame, addMeToGame,
+最后郑重声明, 此版本功能不完善(有地方我没弄好), playerBook 那里 addGame, addMeToGame 有些问题, 将导致无法注册 name 推广啥的
 
 ## 本地部署指南
 
 #### 部署合约: 
+
 ```
 npm install ganache-cli -g
 ganache-cli -l 471238800 -g 1 # 开启 testrpc 同时设定 gasLimit 和 gasPrice
@@ -27,6 +28,7 @@ npm install & npm run dev
 ```
 
 #### 游戏激活(不激活就处于 ICO 中? 不懂...)
+
 ```
 npm install remix-ide -g  # 安装个本地的 remix-ide
 remix-ide  #注意此时处于项目根目录
