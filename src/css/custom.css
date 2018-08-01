@@ -1,7 +1,7 @@
 /* general declarations, unsorted */
 body {
 	font-family: Poppins;
-  background-color: #302430;
+  background-color: #2F3138;
 }
 .brand-logo {
 	height: 3rem;
@@ -116,6 +116,10 @@ body {
 .ooo-grey {
   background-color: rgba(52, 58, 64, 0.8);
 }
+.btn-gold {
+	color:white;
+	background-color: #EFAD00;
+}
 .btn-purp {
 	color:white;
 	background-color: #f000f0;
@@ -123,6 +127,12 @@ body {
 .btn-blu {
 	color:white;
 	background-color: #0055f0;
+}
+.btn-gold:hover, .btn-gold.active{
+	background-color: #EFAD00;
+	box-shadow: 0 0 2px #2b002b, 0 0 25px #EFAD00, 0 0 5px #EFAD00;
+	text-shadow: 0 0 2px #2b002b;
+	color:white;
 }
 .btn-blu:hover, .btn-blu.active{
 	background-color: #5491ff;
@@ -145,6 +155,15 @@ body {
 	box-shadow: 0 0 2px #032b00, 0 0 25px #00cc18, 0 0 5px #f0f;
 	text-shadow: 0 0 2px #032b00;
 	color:white;
+}
+.btn-outline-gold {
+  color:white;
+  background-color: transparent;
+  border: 1px solid #EFAD00;
+}
+.btn-outline-gold:hover, .btn-outline-gold.active {
+  color:white;
+  background-color: #EFAD00;
 }
 .btn-outline-purp {
   color:white;
@@ -226,7 +245,7 @@ a:hover{
 	height:5px;
 }
 .progress-bar {
-	background-color: #f000f0;
+	background-color: #EFAD00;
 }
 .progress-bar-glow {
 	content: url('../img/progress_after.png');
@@ -254,12 +273,12 @@ tbody tr:first-child th:before {
 	content: url('../img/icon_filled.png');
 	position:absolute;
 	left:2px;
-	filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #c0c) drop-shadow(0 0 5px #f0f);
-	-webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #c0c) drop-shadow(0 0 5px #f0f);
+	filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #EFAD00) drop-shadow(0 0 5px #EFAD00);
+	-webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #EFAD00) drop-shadow(0 0 5px #EFAD00);
 }
 tr:hover {
 	background-color: transparent;
-	text-shadow: 0 0 2px #2b002b, 0 0 25px #c0c, 0 0 5px #f0f;
+	text-shadow: 0 0 2px #2b002b, 0 0 25px #EFAD00, 0 0 5px #EFAD00;
 }
 .playername{
 	overflow: hidden;
@@ -277,7 +296,7 @@ tr:hover {
 .jumbotron-fix {
 	max-height:100%;
 	max-width: 100%;
-	
+
 }
 .jumbotron2 {
  padding:1rem 1rem;
@@ -323,6 +342,11 @@ tr:hover {
 	background-color: transparent;
 	border: 1px solid #c0c;
 }
+.nav-link-gold:hover {
+	text-shadow: 0 0 2px #2b002b, 0 0 25px #EFAD00, 0 0 5px #EFAD00;
+	background-color: transparent;
+	border: 1px solid #EFAD00;
+}
 .nav-link-gren-shadow:hover {
 	text-shadow: 0 0 2px #002b00, 0 0 25px #0c0, 0 0 5px #0f0 !important;
 	background-color: transparent;
@@ -331,8 +355,8 @@ tr:hover {
 	color: white!important;
 }
 .nav-item > .active {
-	background-color: #ff4fff!important;
-	box-shadow: 0 0 2px #2b002b, 0 0 25px #c0c, 0 0 5px #f0f;
+	background-color: #EFAD00!important;
+	box-shadow: 0 0 2px #2b002b, 0 0 25px #EFAD00, 0 0 5px #EFAD00;
 }
 .teaser-cover {
 	background-color: transparent;
@@ -409,12 +433,12 @@ tr:hover {
 	background-repeat: no-repeat;
 }
 .teamscore {
-	background-color: #2d3238;
+	background-color: #24262E;
 	border-top:1px solid #1d2024;
 	border-bottom:1px solid #676b70;
 }
 .glow {
-	text-shadow: 0 0 2px #2b002b, 0 0 10px #c0c, 0 0 5px #f0f;
+	text-shadow: 0 0 2px #2b002b, 0 0 10px #EFAD00, 0 0 5px #EFAD00;
 }
 .glow-gren {
 	text-shadow: 0 0 2px #0b2b00, 0 0 10px #00cc00, 0 0 5px #0f0;
@@ -423,7 +447,7 @@ tr:hover {
 	text-shadow: 0 0 2px #0b002b, 0 0 10px #2ee1ef, 0 0 5px #008aff;
 }
 .titleglow {
-  text-shadow: 0 0 5px #2b002b, 0 0 20px #c0c, 0 0 10px #f0f;
+  text-shadow: 0 0 5px #2b002b, 0 0 20px #EFAD00, 0 0 10px #EFAD00;
   color:white;
 }
 .titleglow-green{
@@ -435,7 +459,7 @@ tr:hover {
   color:white;
 }
 .boxglow {
-	box-shadow: 0 0 2px #2b002b, 0 0 10px #c0c, 0 0 5px #f0f;
+	box-shadow: 0 0 2px #2b002b, 0 0 10px #EFAD00, 0 0 5px #EFAD00;
 }
 
 .dropglow-yel {
@@ -463,15 +487,12 @@ tr:hover {
 .tab-rounded {
   border-radius:0px 0px 5px 5px!important;
 }
-.tabs-border-adjust{
-  border-bottom:1px solid #343a40;
-}
 .tab-link{
   border: none!important;
 }
 .tab-link.active{
   box-shadow: none;
-  background-color: #343a40!important; 
+  background-color: #343a40!important;
   border: none;
 }
 .tab-link:hover{
@@ -494,6 +515,10 @@ tr:hover {
 #quotes{
   margin-top:3.9rem;
   z-index:-1;
+}
+.alert-gold{
+  background-color: #EFAD00;
+  border-color: #EFAD00;
 }
 .alert-purp{
   background-color: #ff32ff;
@@ -563,12 +588,12 @@ label > img{
   content:url('../img/sneks.png');
 }*/
 .team input:checked ~ img {
-  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 15px #c0c) drop-shadow(0 0 5px #f0f);
-  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 15px #c0c) drop-shadow(0 0 5px #f0f);
+  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 15px #EFAD00) drop-shadow(0 0 5px #EFAD00);
+  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 15px #EFAD00) drop-shadow(0 0 5px #EFAD00);
 }
 .team img:hover {
   animation:slowpulse 1s infinite;
-  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #c0c) drop-shadow(0 0 5px #f0f);
+  filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #EFAD00) drop-shadow(0 0 5px #EFAD00);
 }
 .checkmark:after{
   content: "";
@@ -576,8 +601,8 @@ label > img{
   display: none;
 }
 .ethglow{
-  filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #c0c) drop-shadow(0 0 5px #f0f);
-  -webkit-filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #c0c) drop-shadow(0 0 5px #f0f);
+  filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #EFAD00) drop-shadow(0 0 5px #EFAD00);
+  -webkit-filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #EFAD00) drop-shadow(0 0 5px #EFAD00);
 }
 .ethglow-slow{
   filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #2ee1ef) drop-shadow(0 0 5px #008aff);
@@ -593,7 +618,7 @@ label > img{
 }
 .ethglow-its-okay-justo{
   filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #c0c) drop-shadow(0 0 2px #f0f);
-  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #c0c) drop-shadow(0 0 2px #f0f); 
+  -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #c0c) drop-shadow(0 0 2px #f0f);
 }
 .miniloader {
     border-top: 2px solid #f0f;
@@ -641,7 +666,7 @@ label > img{
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
   animation: noise-anim infinite linear alternate-reverse;
-  background-color: #240624!important;
+  background-color: #24262E!important;
 }
 .glitch:before {
   content: attr(data-text);
@@ -650,8 +675,8 @@ label > img{
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
   animation: noise-anim-2 infinite linear alternate-reverse;
-  background-color: #240624!important;
-} 
+  background-color: #24262E!important;
+}
 .glitch-regular:after{
   left:-1;
 }
@@ -739,7 +764,7 @@ a{
   font-weight: 300;
 }
 .cprogress .cprogress-value div {
-  
+
 }
 .cprogress .cprogress-value span {
   font-size: 12px;
@@ -752,8 +777,8 @@ a{
   z-index:1;
 }
 
-/* This for loop creates the  necessary css animation names 
-Due to the split circle of cprogress-left and cprogress right, we must use the animations on each side. 
+/* This for loop creates the  necessary css animation names
+Due to the split circle of cprogress-left and cprogress right, we must use the animations on each side.
 */
 .cprogress[data-percentage="10"] .cprogress-right .cprogress-bar {
   animation: loading-1 1.5s linear forwards;
@@ -1044,16 +1069,16 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
 /* pulse effect */
 @keyframes pulse {
   0% {
-    -moz-box-shadow: 0 0 0 0 rgba(204,0,204, 0.8);
-    box-shadow: 0 0 0 0 rgba(204,0,204, 0.8);
+    -moz-box-shadow: 0 0 0 0 rgba(#EFAD00, 0.8);
+    box-shadow: 0 0 0 0 rgba(#EFAD00, 0.8);
   }
   70% {
-      -moz-box-shadow: 0 0 0 5px rgba(204,0,204, 0.3);
-      box-shadow: 0 0 0 5px rgba(204,0,204, 0.3);
+      -moz-box-shadow: 0 0 0 5px rgba(#EFAD00, 0.3);
+      box-shadow: 0 0 0 5px rgba(#EFAD00, 0.3);
   }
   100% {
-      -moz-box-shadow: 0 0 0 10px rgba(204,0,204, 0);
-      box-shadow: 0 0 0 10px rgba(204,0,204, 0);
+      -moz-box-shadow: 0 0 0 10px rgba(#EFAD00, 0);
+      box-shadow: 0 0 0 10px rgba(#EFAD00, 0);
   }
 }
 /* blue pulse for fomo3d slow mode */
@@ -1089,37 +1114,37 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
 /* pulse effect for tutorialarrows */
 @keyframes pulsedrop {
   0% {
-    filter: drop-shadow(0 0 0 rgba(204,0,204, 0.8));
-    -webkit-filter: drop-shadow(0 0 0 rgba(204,0,204, 0.8));
+    filter: drop-shadow(0 0 0 rgba(#EFAD00, 0.8));
+    -webkit-filter: drop-shadow(0 0 0 rgba(#EFAD00, 0.8));
     left:-0.1rem;
-    color: #f0f;
+    color: #EFAD00;
   }
   50% {
     left:-0.5rem;
   }
   70% {
-      filter: drop-shadow(0 0 25px rgba(204,0,204, 0.6));
-      -webkit-filter: drop-shadow(0 0 25px rgba(204,0,204, 0.6));
+      filter: drop-shadow(0 0 25px rgba(#EFAD00, 0.6));
+      -webkit-filter: drop-shadow(0 0 25px rgba(#EFAD00, 0.6));
   }
   100% {
-      filter: drop-shadow(0 0 40px rgba(204,0,204, 0));
-      -webkit-filter: drop-shadow(0 0 40px rgba(204,0,204, 0));
+      filter: drop-shadow(0 0 40px rgba(#EFAD00, 0));
+      -webkit-filter: drop-shadow(0 0 40px rgba(#EFAD00, 0));
       left:-0.1rem;
   }
 }
 /* team select */
 @keyframes slowpulse {
   0% {
-    filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(204,0,204, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
-    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(204,0,204, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
+    filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(#EFAD00, 0.4)) drop-shadow(0 0 5px rgba(#EFAD00, 0.4));
+    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(#EFAD00, 0.4)) drop-shadow(0 0 5px rgba(#EFAD00, 0.4));
   }
   60% {
-    filter: drop-shadow(0 0 2px rgba(43,0,34, 1)) drop-shadow(0 0 10px rgba(204,0,204, 1)) drop-shadow(0 0 5px rgba(255,0,255, 1));
-    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 1)) drop-shadow(0 0 10px rgba(204,0,204, 1)) drop-shadow(0 0 5px rgba(255,0,255, 1));
+    filter: drop-shadow(0 0 2px rgba(43,0,34, 1)) drop-shadow(0 0 10px rgba(#EFAD00, 1)) drop-shadow(0 0 5px rgba(#EFAD00, 1));
+    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 1)) drop-shadow(0 0 10px rgba(#EFAD00, 1)) drop-shadow(0 0 5px rgba(#EFAD00, 1));
   }
   100% {
-    filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(204,0,204, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
-    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(204,0,204, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
+    filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(#EFAD00, 0.4)) drop-shadow(0 0 5px rgba(#EFAD00, 0.4));
+    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(#EFAD00, 0.4)) drop-shadow(0 0 5px rgba(#EFAD00, 0.4));
   }
 }
 
@@ -1156,7 +1181,7 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
           transform: rotateX(-70deg) scale(2);
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  box-shadow: inset 0px -100px 100px 100px #302430;
+  box-shadow: inset 0px -100px 100px 100px #2F3138;
   animation: rad 1s reverse linear infinite;
 }
 
@@ -1166,7 +1191,7 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
           transform: rotateX(70deg) scale(2);
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  box-shadow: inset 0px 100px 100px 100px #302430;
+  box-shadow: inset 0px 100px 100px 100px #2F3138;
   -webkit-animation: rad 1s linear infinite;
           animation: rad 1s linear infinite;
   height:40rem;
@@ -1243,7 +1268,7 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
     -ms-flex-direction: column!important;
     flex-direction: column!important;
   }
-  #buyTabs > .nav-item, 
+  #buyTabs > .nav-item,
   #statTabs > .nav-item {
     background-color: #2d3238!important;
   }
@@ -1255,7 +1280,7 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
   #statTabs > .nav-item a.active {
     color:white!important;
   }
-  #buyTabs > .nav-item:first-of-type, 
+  #buyTabs > .nav-item:first-of-type,
   #statTabs > .nav-item:first-of-type {
     border-top-right-radius: .25rem;
     border-top-left-radius: .25rem;
@@ -1263,7 +1288,7 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
 }
 
 .btn {
-  white-space: normal;
+  /* white-space: normal; */
 }
 
 /* pepe */
@@ -1290,51 +1315,51 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
   color:white;
 }
 .titlepopoutrightmini{
-   text-shadow: 1px 1px #9d009d, 
-                2px 2px #9d009d, 
-                3px 3px #9d009d;
+   text-shadow: 1px 1px #EFAD00,
+                2px 2px #EFAD00,
+                3px 3px #EFAD00;
 }
 .titlepopoutrightminigreen{
-   text-shadow: 1px 1px #307b30, 
-                2px 2px #307b30, 
+   text-shadow: 1px 1px #307b30,
+                2px 2px #307b30,
                 3px 3px #307b30;
 }
 .popoverrightmini{
-   text-shadow: 1px 1px #ff9fff, 
+   text-shadow: 1px 1px #ff9fff,
                 2px 2px #ff9fff;
 }
 .titlepopout-right-mini-grey-glow{
-   text-shadow: 1px 1px #565656, 
+   text-shadow: 1px 1px #565656,
                 2px 2px #565656,
 				0 0 2px #2b002b,
 				0 0 5px #c0c,
 				0 0 2px #f0f;
-	color:white;			
+	color:white;
 }
 .titlepopout-right-mini-grey-shadow{
-   text-shadow: 1px 1px #565656, 
+   text-shadow: 1px 1px #565656,
                 2px 2px #565656,
 				0 0 2px #565656,
 				0 0 5px #565656,
 				0 0 2px #565656;
-	color:white;			
+	color:white;
 }
 .titlepopout-right-mini-grey-ethereum{
-   text-shadow: 1px 1px #494874, 
+   text-shadow: 1px 1px #494874,
                 2px 2px #494874,
 				0 0 2px #1d2033,
 				0 0 5px #1d2033,
 				0 0 2px #1d2033;
-	color:#1d2033;			
+	color:#1d2033;
 }
 .titlepopout-right-mini-grey{
-   text-shadow: 1px 1px #565656, 
+   text-shadow: 1px 1px #565656,
                 2px 2px #565656;
 }
 .titlepopoutrightminiinverse{
    color: #e84fe8;
-   text-shadow: 1px 1px #000, 
-                2px 2px #000, 
+   text-shadow: 1px 1px #000,
+                2px 2px #000,
                 3px 3px #000;
 }
 .popover{
@@ -1417,7 +1442,7 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-} 
+}
 
 .dropdown-item:hover {
   background-color: rgb(255, 0, 255);
@@ -1491,5 +1516,5 @@ input:checked + .slider:before {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none; 
+  user-select: none;
 }

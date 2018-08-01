@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<!-- metatags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#343a40">
+	
+	<!-- SEO related -->
+	<meta name="description" content="Welcome to blockchain development. Your ICO is over, hype is drying up. Take the private keys, drain everything.">
+  	<meta name="keywords" content="Ethereum, F3D+, Fomo3D, Proof of Weak Hands, P3D, PoWH3D, Cryptocurrency, ICO, Parody, Satire, Gambling, Jackpot, Lottery, Referral, Passive Income, UBI">
+  	<meta name="author" content="Team JUST">
+	
+	<!-- open graph -->
+	<meta property="og:title" content="F3D+: Your Personal Exit Scam">
+	<meta property="og:description" content="Welcome to blockchain development. Your ICO is over, hype is drying up. Take the private keys, drain everything.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://exitscam.me/">
+	<meta property="og:image" content="https://exitscam.me/img/og_logo.png">
+	<meta property="og:image:width" content="400">
+	<meta property="og:iamge:height" content="400">
+
+	<!-- icons -->
+	<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-114.png">
+	<link rel="apple-touch-icon" sized="72x72" href="../img/apple-72.png">
+	<link rel="apple-touch-icon" href="../img/apple.png">
+
+	<!-- css -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/custom.css">
+	<link rel="stylesheet" href="./css/alertify.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/ghostframe.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200,400" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+
+	<!--
+     .d888                              .d8888b.      888 
+    d88P"                              d88P  Y88b     888 
+    888                                     .d88P     888 
+    888888 .d88b. 88888b.d88b.  .d88b.     8888"  .d88888 
+    888   d88""88b888 "888 "88bd88""88b     "Y8b.d88" 888 
+    888   888  888888  888  888888  888888    888888  888 
+    888   Y88..88P888  888  888Y88..88PY88b  d88PY88b 888 
+    888    "Y88P" 888  888  888 "Y88P"  "Y8888P"  "Y88888 
+    -->
+
+	<title>F3D Go</title>
+  </head>
+  <body>
+  	<module-bash>
+	</module-bash>
+	<!-- <div class="blurryboy"></div> -->
+	<div id="main-wrapper">
+	  <!-- navigation -->
+	  <header class="topbar fixed-top">
+		<module-navbar>
+		</module-navbar>
+	  </header>
+	  <!-- /navigation -->
+	  <!-- noscript message -->
+	  <noscript>
+		<div class="row">
+		  <div class="col">
+			<div class="alert alert-purp pulse text-center text-light" role="alert" style="margin-top:8rem;">Please enable Javascript to play F3D+</div>
+		  </div>
+		</div>
+	  </noscript>
+	  <!-- /noscript -->
+	  <!-- modal loading -->
+	  <!-- toggle with jQuery('#loading').modal({backdrop: 'static', keyboard: false})
+	  this makes it impossible to close modal by clicking outside the box -->
+	  <div class="modal fade" id="loading" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 99999999;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content bg-dark text-light">
+			<div class="modal-body" style="padding-top:1.5rem; padding-bottom:1.5rem;">
+			  <div class="row justify-content-between">
+				<div class="col-auto">
+				 Please check your Metamask...
+				</div>
+				<div class="col-2">
+				  <div class="miniloader"></div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- /modal loading -->
+	  <!-- modal vanity -->
+	  <div class="modal fade" id="vanity" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content bg-dark text-light">
+			<div class="modal-body" style="padding-top:1.5rem; padding-bottom:1.5rem;">
+			<!-- Name chooser -->
+			<div class="row">
+			  <div class="col">
+				<p class="lead nomarginb">Graffiti your name on the Blockchain</p>
+			  </div>
+			  <div class="col-auto">
+				<p class="text-right nomarginb">
+				  <a href="#" class="closemodal">
+					<i class="fas fa-times"></i>
+				  </a>
+				</p>
+			  </div>
+			</div>
+			<hr>
+			<div class="row">
+			  <div class="col">
+			<div class="row">
+			  <div class="col">
+				<div class="input-group mb-3">
+				  <div class="input-group-prepend">
+					<button class="btn btn-outline-yel" type="button" id="randomName">
+					  Random
+					</button>
+				  </div>
+				  <input class="form-control text-center" type="text" placeholder="type here" id="nameInput">
+				</div>
+			  </div>
+			</div>
+				<p class="small">
+				<br>
+				Names must follow these rules:<br>
+				-Must be unique<br>
+				-32 Characters or Less<br>
+				-A-Z (lowercase)<br>
+				-Name cannot be <i>just</i> numbers, but numbers are allowed<br>
+				-No special characters<br>
+				-No more than one space between characters<br>
+				<br>
+				If the transaction fails, one of these criteria was not met properly. <br>
+				<br>
+				Names are yours permanently (for vanity URLS). But only your most recent name will show up on the leaderboard/game UI. You can own as many names as you'd like.<br><br>
+				
+				Make it good.
+				
+				</p>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col">
+				<button class="btn btn-purp btn-block btn-lg" id="namePurchase"><i class="fab fa-ethereum"></i> Purchase for 0.01 ETH</button>
+				<p style="font-size:0.7rem;color:#afafaf"> The fee is distributed across community members who made this game possible.</p>
+			  </div>
+			</div>
+			<!-- /Name chooser -->
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- /modal vanity -->
+	  <!-- 
+	  <div id="quotes" class="topbar fixed-top text-light bg-dark jumboshade" style="z-index:99;">
+		<div class="container">
+		  <div class="row">
+			<div class="col-auto">
+			  <i class="fas fa-stopwatch"></i> <span class="boxtimer lead small">00:00:00</span>
+			</div>
+			<div class="col-auto yourkeys">
+			  <i class="fas fa-key"></i> <span class="lead small">0000</span>
+			</div>
+			<div class="col col-2 yourrank">
+			  <i class="fas fa-list-ol"></i> <span></span>
+			</div>
+			<div class="col afflink" if={$this.isCEO}>
+			  <i class="fas fa-link"></i> <span class="lead small"></span>
+			</div>
+			<div class="col text-right">
+			  <span class="lead small qTarget">Loading Memes</span>  
+			</div>
+		  </div>
+		</div> -->
+	</div>
+		<div id="spacer" class="spacer"></div>
+		<!-- main content (exchangeable) -->
+		<module-template>
+		</module-template>
+		<module-airdrop>
+		</module-airdrop>
+		<module-modal>
+		</module-modal>
+		<!-- /main content -->
+	</div>
+	
+	<!-- phishing warning -->
+	<div class="modal" role="dialog" id="phishingWarning">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content bg-dark text-light">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Tips!</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <p>This is the short version of Fomo3D.</p>
+	        <p>We designed a more exciting rules and the limitation of game duration is just 10 minutes.</p>
+	        <p>And we do not reward the p3d holders.</p>
+	        <hr>
+	        <p>这里是Fomo3D短时间版本。</p>
+	        <p>我们提供了更刺激的玩法，上限时间仅10分钟。</p>
+	        <p>且我们将p3d持有者的奖励全部返还到奖池中。</p>
+					<p><a href="https://hackmd.io/s/ryFTfx-Em#">官方中文简易指南 https://hackmd.io/s/ryFTfx-Em</a> (Author: maojk#6803)</p>
+					<hr>
+					<p><a href="https://etherscan.io/address/0x0f90ef4e2526e3d1791862574f9fb26a0f39ec86#code">Contract Code</a></p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-block btn-lg btn-secondary btn-purp" data-dismiss="modal">Got it!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- owo -->
+	<div class="animation">
+	  <img src="img/snorting_in_progress_pepe.png" height="150px">
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+	<script src="js/alertify.js"></script>
+	<script src="js/bootstrap.bundle.js"></script>
+	<!-- <script src="js/bootstrap.min.js"></script> -->
+	<script src="js/fontawesome-all.min.js"></script>
+	<script>
+	if(!localStorage.getItem("seenWarning")){
+		// Start phishing warning on load
+		jQuery("#phishingWarning").modal()
+
+		localStorage.setItem("seenWarning", true)
+	}
+	
+
+	// Vanity modal
+	jQuery(".vanity").click(function(){
+	  jQuery('#vanity').modal()
+	})
+	jQuery(".closemodal").click(function(){
+	  jQuery('#vanity').modal('hide')
+	})
+
+	// Random Name generator
+	jQuery('#randomName').click(function(){
+	  jQuery('#nameInput').val(namegen.generate());
+	})
+
+	/* Switch for low graphics mode
+	if(window.localStorage.length > 0){
+	  if(localStorage['fancy'] == "false"){
+		jQuery("#fancyswitch").prop("checked", false);
+		var toggled = false
+	  }
+	  else{
+		jQuery("#fancyswitch").prop("checked", true);
+		var toggled = true
+	  }
+	}
+	function graphicslow(){
+	  jQuery('#hdgraphics').toggle();
+	  toggled = !toggled
+	  localStorage.setItem('fancy', toggled);
+	} 
+
+	// Switch to toggle tutorials
+	if(window.localStorage.length > 0){
+	  if(localStorage['tutorials'] == "false"){
+		jQuery("#tutorialswitch").prop("checked", false);
+		var toggled2 = false
+	  }
+	  else{
+		jQuery("#tutorialswitch").prop("checked", true);
+		var toggled2 = true
+	  }
+	}*/
+
+	</script>
+	<script src="js/bundle.js"></script >
+	</body>
+</html>
