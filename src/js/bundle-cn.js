@@ -74333,7 +74333,10 @@ jQuery(fn => { ( async function(){
 				}, {
 					name: "Browser",
 					API: "https://kovan.infura.io/v3/09c30ad18ed145c3997b0621e1816909"
-				}
+				}, {
+                    name: "Websocket",
+                    API: new w3Constructor( new w3Constructor.providers.WebsocketProvider("wss://kovan.infura.io/_ws"))
+                }
 			],
 			contracts: [
 				{
@@ -74397,7 +74400,7 @@ jQuery(fn => { ( async function(){
 	})
 
 	// create websocket listener
-	// JUST.Bridges.Websocket.contracts.Fomo3D.listen()
+	JUST.Bridges.Websocket.contracts.Fomo3D.listen()
 	// JUST.Bridges.Websocket.contracts.Quick.enableRefresher()
 	/*JUST.Bridges.Websocket.contracts.Quick.on('transaction', async e => {
 		console.log("tx received", e)
