@@ -74332,14 +74332,14 @@ jQuery(fn => { ( async function(){
 					API: (typeof web3 !== "undefined" ? web3 : false)
 				}, {
 					name: "Browser",
-					API: "http://127.0.0.1:8545"
+					API: "https://kovan.infura.io/v3/09c30ad18ed145c3997b0621e1816909"
 				}
 			],
 			contracts: [
 				{
 					name: "Fomo3D",
 					model: Ethereum.Fomo3D,
-					address: "0xaa275c5e4aa133e59b39eb8b463846ef723e303c"
+					address: "0x64c5170846aba77c96de9f0bcbe27aaf19f27f0c"
 				}
 			]
 		})

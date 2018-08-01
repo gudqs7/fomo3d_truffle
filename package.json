@@ -25,6 +25,7 @@
     "nunjucks": "2.4.2"
   },
   "dependencies": {
+    "truffle-hdwallet-provider": "0.0.6",
     "zeppelin-solidity": "^1.4.0"
   }
 }
