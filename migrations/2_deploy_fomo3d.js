@@ -45,6 +45,7 @@ module.exports = function (deployer) {
         return FoMo3Dlong.deployed();
     }).then(function (fomo) {
         fomo.setPlayerBook(player.address);
+        // fomo.activate(); //快速激活, 慎重啊
         player.addGame(fomo.address, 'fomo');
     });
 

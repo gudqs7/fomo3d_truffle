@@ -1,14 +1,13 @@
 ## 说明
 本项目通过reed 大佬的 [fomo3d_clone](https://github.com/reedhong/fomo3d_clone) 项目改造而成, 感谢 reed 大佬!!!
-
-经过本人吐血试验折腾, 弄好了一次性编译部署 (没啥必要, 但我就是喜欢死磕)
-
-最后郑重声明, 此版本功能不完善(有地方我没弄好), playerBook 那里 addGame, addMeToGame 有些问题, 将导致无法注册 name 推广啥的
-
+ 
 ## 本地部署指南
 
 #### 部署合约: 
 
+> 一共部署了3个合约, 其中3个收款地址被砍掉(改成了部署者的地址), p3d 也砍掉了
+> 3个合约 我偷懒没有把合约地址写死, 用的是后续的 set 方法, 所以如果 truffle migrate 最后那段报错了, 可能没有 set 成功, 需要用其他方式调用( truffle console, 或者 remix 等)
+> 合约部署完, 如无报错, 直接复制走 FoMo3Dlong 的地址就行了
 ```
 npm install ganache-cli -g
 ganache-cli -l 471238800 -g 1 # 开启 testrpc 同时设定 gasLimit 和 gasPrice
@@ -20,14 +19,20 @@ truffle migrate --reset | grep 'FoMo3Dlong: 0x' | awk  '{ print $2 }'
 
 #### 部署前端:
 
+> 前端没有太多需要改的地方, 若使用英文版, 可参考下面命令行修改地址方式
+> 若选择 bundle-cn.js 这个中文版, 则自己找到要修改的地方, 手动修改也行的
+> 顺便说下 cn 里面还是 kovan测试网络的配置, 如需使用可把 bundle.js 里面的本地配置拷贝下
+
 ```
 cd src/js
-sed -i "" 's/{{address}}/0xe80662701fe17ebf9332b6a1bbf762ed1efa5ec7/g' bundle.js # 非 mac 去除 -i 后的 ""
+sed -i "" 's/{{address}}/0x00/g' bundle.js # 非 mac 去除 -i 后的 ""
 cd ../../
-npm install & npm run dev
+npm install & npm run start
 ```
 
 #### 游戏激活(不激活就处于 ICO 中? 不懂...)
+
+> 刚想到一个不一定靠谱的简单方式, 把 migrations 下那个 js 里面加一个 activate 的方法调用
 
 ```
 npm install remix-ide -g  # 安装个本地的 remix-ide
