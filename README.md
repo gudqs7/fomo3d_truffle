@@ -17,6 +17,11 @@ truffle migrate --reset # 执行后, 复制 FoMo3Dlong: 后跟的地址
 truffle migrate --reset | grep 'FoMo3Dlong: 0x' | awk  '{ print $2 }'
 ```
 
+> 推荐做法   
+> truffle migrate --reset > migrate.log  
+> cat migrate.log  # 查看有无错误, 如合约均部署成功,但最后报错, 可能有几个赋值方法没有执行(我部署到 kovan 时就发生了这事,可以参考 migrations/2_deploy_fomo3d.js逻辑手动执行)  
+> cat migrate.log | grep 'FoMo3Dlong: 0x' | awk  '{ print $2 }'
+
 #### 部署前端:
 
 > 前端没有太多需要改的地方, 若使用英文版, 可参考下面命令行修改地址方式
@@ -47,4 +52,8 @@ remix-ide  #注意此时处于项目根目录
 > 最后点下 合约的 activate 方法
 
 
->PS: 前端路径 由于没有 采用专业的后端服务器, 所以 /play /xxx 直接访问均报错, 请再访问出错后, 删除后缀, 重新载入, 等待 loading
+#### 合约源码浅度分析
+
+[Fomo3D 合约源码分析](https://github.com/gudqs7/fomo3d_truffle/blob/master/Fomo3D-SourceCode.md)
+
+> 主要是对源码所有合约整理归类, 解释下合约都有啥作用, 希望对刚接触 fomo3d, 想学习 fomo3d 的有所帮助!
