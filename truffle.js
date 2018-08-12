@@ -9,13 +9,30 @@ module.exports = {
             gas: 7500000,
             network_id: "*" // Match any network id
         },
-        ropsten: {
+        kovan: {
             gas: 8000000,
             provider: function() {
                 return new HDWalletProvider(mnemonic,
-                    "https://kovan.infura.io/v3/{{your_apiKey}}")
+                    "https://kovan.infura.io/v3/09c30ad18ed145c3997b0621e1816909")
             },
             network_id: 3
+        },
+        ropsten: {
+           // gas: 8000000,
+            provider: function() {
+                return new HDWalletProvider(mnemonic,
+                    "https://ropsten.infura.io/v3/09c30ad18ed145c3997b0621e1816909")
+            },
+            network_id: 2
+        },
+        mainnet: {
+            gas: 7500000,
+            provider: function() {
+                return new HDWalletProvider(mnemonic,
+                    "https://mainnet.infura.io/v3/09c30ad18ed145c3997b0621e1816909")
+            },
+            network_id: 1
+
         }
     },
     solc: {
