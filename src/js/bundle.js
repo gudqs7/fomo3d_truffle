@@ -74305,7 +74305,7 @@ namegen = require('./namegenerator.js')
 w3Constructor = require('web3')
 memes = require("./dynamicmemes.js")
 popover = require("./popover.js")
-var testnet = false
+var testnet = true
 
 jQuery(fn => { ( async function(){
 	/**
@@ -74332,17 +74332,22 @@ jQuery(fn => { ( async function(){
 					API: (typeof web3 !== "undefined" ? web3 : false)
 				}, {
 					name: "Browser",
-					API: "http://127.0.0.1:8545"
+					API: "https://mainnet.infura.io/v3/09c30ad18ed145c3997b0621e1816909"
+				}, {
+					name: "Websocket",
+					API: new w3Constructor( new w3Constructor.providers.WebsocketProvider("wss://mainnet.infura.io/_ws"))
 				}
 			],
 			contracts: [
 				{
 					name: "Fomo3D",
 					model: Ethereum.Fomo3D,
-					address: "{{address}}"
+					address: "0x64c5170846aba77c96de9f0bcbe27aaf19f27f0c"
 				}
 			]
 		})
+
+
 	} else {
 		await JUST.connect({
 			providers: [
@@ -74351,22 +74356,22 @@ jQuery(fn => { ( async function(){
 					API: (typeof web3 !== "undefined" ? web3 : false)
 				}, {
 					name: "Browser",
-					API: "https://testnet.teamjust.io"
+					API: "https://ropsten.infura.io/v3/09c30ad18ed145c3997b0621e1816909"
 				}, {
 					name: "Websocket",
-					API: new w3Constructor( new w3Constructor.providers.WebsocketProvider("wss://127.0.0.1:8546"))
+					API: new w3Constructor( new w3Constructor.providers.WebsocketProvider("wss://mainnet.infura.io/_ws"))
 				}
 			],
 			contracts: [
 				{
 					name: "Fomo3D",
 					model: Ethereum.Fomo3D,
-					address: "0x3b57437C6a9b053aDB4ADdf6ede1EaCd6E34F00d"
+					address: "0xe9c302779a7541f9cd42217eb3c4287cdaf7ef96"
 				},
 					{
 					name: "Quick",
 					model: Ethereum.Fomo3D,
-					address: "0xd695dc2ddd1d063e5eb9e3681e4a7d215558388e"
+					address: "0xe9c302779a7541f9cd42217eb3c4287cdaf7ef96"
 				},
 				{
 					name: "P3D",
@@ -74397,8 +74402,8 @@ jQuery(fn => { ( async function(){
 	})
 
 	// create websocket listener
-	// JUST.Bridges.Websocket.contracts.Fomo3D.listen()
-	// JUST.Bridges.Websocket.contracts.Quick.enableRefresher()
+	JUST.Bridges.Websocket.contracts.Fomo3D.listen()
+	JUST.Bridges.Websocket.contracts.Fomo3D.enableRefresher()
 	/*JUST.Bridges.Websocket.contracts.Quick.on('transaction', async e => {
 		console.log("tx received", e)
 		var isOurs = false
