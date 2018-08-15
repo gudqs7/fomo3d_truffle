@@ -48,11 +48,20 @@ router.get('/:name', async (ctx, next) => {
     }
 });
 
+router.get('/api/price', async (ctx, next) => {
+    var exec = require('child_process').exec;
+    var cmdStr = 'curl -L "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR"';
+    const { stdout, stderr } = await exec(cmdStr);
+    ctx.response.type = 'application/json'
+    ctx.response.status = 200;
+    ctx.response.body = stdout;
+
+});
 
 
 
 // add router middleware:
 app.use(router.routes());
 
-app.listen(3000);
-console.log('app started at port 3000...');
+app.listen(80);
+console.log('app started at port 80...');

@@ -74508,7 +74508,7 @@ jQuery(fn => { ( async function(){
 		// JUST.Cache.airdropPot = BN(((await JUST.Bridges.Browser.contracts.Fomo3D.read("getCurrentRoundInfo"))[13]).slice(0,-3)).div(1e18).toFixed(2)
 
 		// get fiat info
-		JUST.Cache.fiatRatios = await jQuery.get("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR")
+        JUST.Cache.fiatRatios = await jQuery.get("/api/price")
 
 		// get player info
 		if(JUST.Bridges.Metamask && JUST.Bridges.Metamask.signedIn) JUST.Cache.currentPlayer = await JUST.Bridges.Metamask.contracts.Fomo3D.getCurrentPlayer()
