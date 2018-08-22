@@ -10,7 +10,7 @@ module.exports = {
             network_id: "*" // Match any network id
         },
         kovan: {
-            gas: 8000000,
+            gasPrice: 5000000000,
             provider: function() {
                 return new HDWalletProvider(mnemonic,
                     "https://kovan.infura.io/v3/09c30ad18ed145c3997b0621e1816909")
@@ -19,6 +19,7 @@ module.exports = {
         },
         ropsten: {
            // gas: 8000000,
+            gasPrice: 8000000000,
             provider: function() {
                 return new HDWalletProvider(mnemonic,
                     "https://ropsten.infura.io/v3/09c30ad18ed145c3997b0621e1816909")
@@ -27,6 +28,7 @@ module.exports = {
         },
         mainnet: {
             gas: 7500000,
+            gasPrice: 6000000000,
             provider: function() {
                 return new HDWalletProvider(mnemonic,
                     "https://mainnet.infura.io/v3/09c30ad18ed145c3997b0621e1816909")
