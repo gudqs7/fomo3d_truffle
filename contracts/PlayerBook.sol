@@ -42,11 +42,11 @@ contract PlayerBook is PlayerBookInterface {
     using SafeMath for uint256;
 
     address private Jekyll_Island_Inc;
-    TeamJustInterface public teamJust;// = new TeamJust();
+    address public teamJust;// = new TeamJustInterface();
 
     MSFun.Data private msData;
 
-    function multiSigDev(bytes32 _whatFunction) private returns (bool) {return (MSFun.multiSig(msData, teamJust.requiredDevSignatures(), _whatFunction));}
+    function multiSigDev(bytes32 _whatFunction) private returns (bool) {return (MSFun.multiSig(msData, TeamJustInterface(teamJust).requiredDevSignatures(), _whatFunction));}
 
     function deleteProposal(bytes32 _whatFunction) private {MSFun.deleteProposal(msData, _whatFunction);}
 
@@ -56,13 +56,13 @@ contract PlayerBook is PlayerBookInterface {
 
     function checkSignersByAddress(bytes32 _whatFunction, uint256 _signerA, uint256 _signerB, uint256 _signerC) onlyDevs() public view returns (address, address, address) {return (MSFun.checkSigner(msData, _whatFunction, _signerA), MSFun.checkSigner(msData, _whatFunction, _signerB), MSFun.checkSigner(msData, _whatFunction, _signerC));}
 
-    function checkSignersByName(bytes32 _whatFunction, uint256 _signerA, uint256 _signerB, uint256 _signerC) onlyDevs() public view returns (bytes32, bytes32, bytes32) {return (teamJust.adminName(MSFun.checkSigner(msData, _whatFunction, _signerA)), teamJust.adminName(MSFun.checkSigner(msData, _whatFunction, _signerB)), teamJust.adminName(MSFun.checkSigner(msData, _whatFunction, _signerC)));}
+    function checkSignersByName(bytes32 _whatFunction, uint256 _signerA, uint256 _signerB, uint256 _signerC) onlyDevs() public view returns (bytes32, bytes32, bytes32) {return (TeamJustInterface(teamJust).adminName(MSFun.checkSigner(msData, _whatFunction, _signerA)), TeamJustInterface(teamJust).adminName(MSFun.checkSigner(msData, _whatFunction, _signerB)), TeamJustInterface(teamJust).adminName(MSFun.checkSigner(msData, _whatFunction, _signerC)));}
     //==============================================================================
     //     _| _ _|_ _    _ _ _|_    _   .
     //    (_|(_| | (_|  _\(/_ | |_||_)  .
     //=============================|================================================
     uint256 public registrationFee_ = 10 finney;            // price to register a name
-    mapping(uint256 => PlayerBookReceiverInterface) public games_;  // mapping of our game interfaces for sending your account info to games
+    mapping(uint256 => address) public games_;  // mapping of our game interfaces for sending your account info to games
     mapping(address => bytes32) public gameNames_;          // lookup a games name
     mapping(address => uint256) public gameIDs_;            // lokup a games ID
     uint256 public gID_;        // total number of games
@@ -81,14 +81,10 @@ contract PlayerBook is PlayerBookInterface {
 
     address public owner;
 
-    function getT () public returns (address){
-        return address(teamJust);
-    }
-
     function setTeam(address _teamJust) external {
         require(msg.sender == owner, 'only dev!');
         require(address(teamJust) == address(0), 'already set!');
-        teamJust = TeamJustInterface(_teamJust);
+        teamJust = _teamJust;
     }
     //==============================================================================
     //     _ _  _  __|_ _    __|_ _  _  .
@@ -130,7 +126,7 @@ contract PlayerBook is PlayerBookInterface {
 
     modifier onlyDevs()
     {
-        require(teamJust.isDev(msg.sender) == true, "msg sender is not a dev");
+        require(TeamJustInterface(teamJust).isDev(msg.sender) == true, "msg sender is not a dev");
         _;
     }
 
@@ -331,12 +327,12 @@ contract PlayerBook is PlayerBookInterface {
         uint256 _totalNames = plyr_[_pID].names;
 
         // add players profile and most recent name
-        games_[_gameID].receivePlayerInfo(_pID, _addr, plyr_[_pID].name, plyr_[_pID].laff);
+        PlayerBookReceiverInterface(games_[_gameID]).receivePlayerInfo(_pID, _addr, plyr_[_pID].name, plyr_[_pID].laff);
 
         // add list of all names
         if (_totalNames > 1)
             for (uint256 ii = 1; ii <= _totalNames; ii++)
-                games_[_gameID].receivePlayerNameList(_pID, plyrNameList_[_pID][ii]);
+                PlayerBookReceiverInterface(games_[_gameID]).receivePlayerNameList(_pID, plyrNameList_[_pID][ii]);
     }
 
     /**
@@ -356,10 +352,10 @@ contract PlayerBook is PlayerBookInterface {
 
         for (uint256 i = 1; i <= gID_; i++)
         {
-            games_[i].receivePlayerInfo(_pID, _addr, _name, _laff);
+            PlayerBookReceiverInterface(games_[i]).receivePlayerInfo(_pID, _addr, _name, _laff);
             if (_totalNames > 1)
                 for (uint256 ii = 1; ii <= _totalNames; ii++)
-                    games_[i].receivePlayerNameList(_pID, plyrNameList_[_pID][ii]);
+                    PlayerBookReceiverInterface(games_[i]).receivePlayerNameList(_pID, plyrNameList_[_pID][ii]);
         }
 
     }
@@ -412,7 +408,7 @@ contract PlayerBook is PlayerBookInterface {
         // push player info to games
         if (_all == true)
             for (uint256 i = 1; i <= gID_; i++)
-                games_[i].receivePlayerInfo(_pID, _addr, _name, _affID);
+                PlayerBookReceiverInterface(games_[i]).receivePlayerInfo(_pID, _addr, _name, _affID);
 
         // fire event
         emit onNewName(_pID, _addr, _name, _isNewPlayer, _affID, plyr_[_affID].addr, plyr_[_affID].name, msg.value, now);
@@ -605,9 +601,9 @@ contract PlayerBook is PlayerBookInterface {
             bytes32 _name = _gameNameStr;
             gameIDs_[_gameAddress] = gID_;
             gameNames_[_gameAddress] = _name;
-            games_[gID_] = PlayerBookReceiverInterface(_gameAddress);
+            games_[gID_] = _gameAddress;
 
-            games_[gID_].receivePlayerInfo(1, plyr_[1].addr, plyr_[1].name, 0);
+//            PlayerBookReceiverInterface(games_[gID_]).receivePlayerInfo(1, plyr_[1].addr, plyr_[1].name, 0);
 
         }
     }
@@ -622,6 +618,6 @@ contract PlayerBook is PlayerBookInterface {
         }
     }
 
-    function isDev(address _who) external view returns(bool) {return teamJust.isDev(_who);}
+    function isDev(address _who) external view returns(bool) {return TeamJustInterface(teamJust).isDev(_who);}
 
 }

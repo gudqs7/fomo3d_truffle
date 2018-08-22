@@ -33,7 +33,7 @@ module.exports = function (deployer) {
     deployer.deploy(PlayerBook);
     deployer.deploy(FoMo3Dlong);
 
-    var team, player;
+    var team, player, fomo;
     deployer.then(function () {
         return TeamJust.deployed();
     }).then(function (teamJust) {
@@ -43,10 +43,15 @@ module.exports = function (deployer) {
         player = playerBook;
         player.setTeam(team.address);
         return FoMo3Dlong.deployed();
-    }).then(function (fomo) {
+    }).then(function (fomo_) {
+        fomo = fomo_;
         fomo.setPlayerBook(player.address);
-        // fomo.activate(); //快速激活, 慎重啊
-        player.addGame(fomo.address, 'fomo');
+        return TeamJust.deployed();
+    }).then(function () {
+        fomo.activate({gasPrice: 5500000000}); //快速激活, 慎重啊
+        return F3Ddatasets.deployed();
+    }).then(function () {
+        player.addGame(fomo.address, 'fomo',{gasPrice: 6000000000});
     });
 
 };

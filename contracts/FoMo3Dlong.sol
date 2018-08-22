@@ -18,7 +18,7 @@ contract FoMo3Dlong is F3Devents {
     address public otherF3D_;
     address  public Divies;
     address  public Jekyll_Island_Inc;
-    PlayerBookInterface public playerBook;// =PlayerBookInterface(0x0dcd2f752394c41875e259e00bb44fd505297caf);//new PlayerBook();//
+    address public playerBook;// =PlayerBookInterface(0x0dcd2f752394c41875e259e00bb44fd505297caf);//new PlayerBook();//
     //    TeamJustInterface constant private teamJust = TeamJustInterface(0x3a5f8140b9213a0f733a6a639857c9df43ee3f5a);// new TeamJust();//
 
     //==============================================================================
@@ -61,7 +61,7 @@ contract FoMo3Dlong is F3Devents {
     function setPlayerBook(address _playerBook) external {
         require(msg.sender == owner, 'only dev!');
         require(address(playerBook) == address(0), 'already set!');
-        playerBook = PlayerBookInterface(_playerBook);
+        playerBook = _playerBook;
     }
 
     address public owner;
@@ -130,7 +130,7 @@ contract FoMo3Dlong is F3Devents {
 
     modifier onlyDevs()
     {
-        require(playerBook.isDev(msg.sender) == true, "msg sender is not a dev");
+        require(PlayerBookInterface(playerBook).isDev(msg.sender) == true, "msg sender is not a dev");
         _;
     }
 
@@ -516,7 +516,7 @@ contract FoMo3Dlong is F3Devents {
         bytes32 _name = _nameString.nameFilter();
         address _addr = msg.sender;
         uint256 _paid = msg.value;
-        (bool _isNewPlayer, uint256 _affID) = playerBook.registerNameXIDFromDapp.value(_paid)(_addr, _name, _affCode, _all);
+        (bool _isNewPlayer, uint256 _affID) = PlayerBookInterface(playerBook).registerNameXIDFromDapp.value(_paid)(_addr, _name, _affCode, _all);
 
         uint256 _pID = pIDxAddr_[_addr];
 
@@ -532,7 +532,7 @@ contract FoMo3Dlong is F3Devents {
         bytes32 _name = _nameString.nameFilter();
         address _addr = msg.sender;
         uint256 _paid = msg.value;
-        (bool _isNewPlayer, uint256 _affID) = playerBook.registerNameXaddrFromDapp.value(msg.value)(msg.sender, _name, _affCode, _all);
+        (bool _isNewPlayer, uint256 _affID) = PlayerBookInterface(playerBook).registerNameXaddrFromDapp.value(msg.value)(msg.sender, _name, _affCode, _all);
 
         uint256 _pID = pIDxAddr_[_addr];
 
@@ -548,7 +548,7 @@ contract FoMo3Dlong is F3Devents {
         bytes32 _name = _nameString.nameFilter();
         address _addr = msg.sender;
         uint256 _paid = msg.value;
-        (bool _isNewPlayer, uint256 _affID) = playerBook.registerNameXnameFromDapp.value(msg.value)(msg.sender, _name, _affCode, _all);
+        (bool _isNewPlayer, uint256 _affID) = PlayerBookInterface(playerBook).registerNameXnameFromDapp.value(msg.value)(msg.sender, _name, _affCode, _all);
 
         uint256 _pID = pIDxAddr_[_addr];
 
@@ -1083,9 +1083,9 @@ contract FoMo3Dlong is F3Devents {
         if (_pID == 0)
         {
             // grab their player ID, name and last aff ID, from player names contract 
-            _pID = playerBook.getPlayerID(msg.sender);
-            bytes32 _name = playerBook.getPlayerName(_pID);
-            uint256 _laff = playerBook.getPlayerLAff(_pID);
+            _pID = PlayerBookInterface(playerBook).getPlayerID(msg.sender);
+            bytes32 _name = PlayerBookInterface(playerBook).getPlayerName(_pID);
+            uint256 _laff = PlayerBookInterface(playerBook).getPlayerLAff(_pID);
 
             // set up player account 
             pIDxAddr_[msg.sender] = _pID;
@@ -1478,10 +1478,10 @@ contract FoMo3Dlong is F3Devents {
 
     function activate()
     public
-    onlyDevs
     {
 
         // can only be ran once
+        require(msg.sender == owner, 'only dev!');
         require(activated_ == false, "fomo3d already activated");
 
         // activate the contract 
