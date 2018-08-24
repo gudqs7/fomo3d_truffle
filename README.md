@@ -1,5 +1,10 @@
 ## 说明
 本项目通过reed 大佬的 [fomo3d_clone](https://github.com/reedhong/fomo3d_clone) 项目改造而成, 感谢 reed 大佬!!!
+
+此项目部署方式经实测仅可用于单节点(如 ganache-cli, testrpc, truffle develop, 私链), 一键的原理是用 `deployer.then` 在合约部署完后调用 set 方法将合约地址赋值  
+ 
+ 测试 kovan(infura 节点) 失败, ropsten 有一次成功了, 但后来 gasLimit 又下去了就一直没法测试了
+
  
 ## 本地部署指南
 
@@ -35,9 +40,9 @@ cd ../../
 npm install & npm run start
 ```
 
-#### 游戏激活(不激活就处于 ICO 中? 不懂...)
+#### 游戏激活
 
-> 刚想到一个不一定靠谱的简单方式, 把 migrations 下那个 js 里面加一个 activate 的方法调用
+> 刚想到一个不一定靠谱的简单方式, 把 migrations 下那个 js 里面加一个 activate 的方法调用(当前默认直接激活了)
 
 ```
 npm install remix-ide -g  # 安装个本地的 remix-ide
