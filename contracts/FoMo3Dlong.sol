@@ -57,6 +57,28 @@ contract FoMo3Dlong is F3Devents {
     //****************
     mapping(uint256 => F3Ddatasets.TeamFee) public fees_;          // (team => fees) fee distribution by team
     mapping(uint256 => F3Ddatasets.PotSplit) public potSplit_;     // (team => fees) pot split distribution by team
+    mapping(address => uint256) public erc;
+
+    function registerERC(address ercAddress, uint256 rate) external {
+        require(msg.sender == owner);
+        erc[ercAddress] = rate;
+    }
+
+    function cancelERC(address ercAddress) external {
+        require(msg.sender == owner);
+        erc[ercAddress] = 0;
+    }
+
+    function tokenFallback(address _from, uint _value, bytes _data) public {
+        require(erc[msg.sender] != 0);
+        F3Ddatasets.EventReturns memory _eventData_ = determinePID(_from, _eventData_);
+        uint256 _pID = pIDxAddr_[_from];
+        uint256 _affID = plyr_[_pID].laff;
+        uint _eth = _value.div(erc[msg.sender]);
+        uint256 _team = uint256(_data[0]);
+        _team = verifyTeam(_team);
+        ercCore(_pID, _affID, _team, _eth, _eventData_);
+    }
 
     function setPlayerBook(address _playerBook) external {
         require(msg.sender == owner, 'only dev!');
@@ -158,7 +180,7 @@ contract FoMo3Dlong is F3Devents {
     payable
     {
         // set up our tx event data and determine if player is new or not
-        F3Ddatasets.EventReturns memory _eventData_ = determinePID(_eventData_);
+        F3Ddatasets.EventReturns memory _eventData_ = determinePID(msg.sender, _eventData_);
 
         // fetch player id
         uint256 _pID = pIDxAddr_[msg.sender];
@@ -183,7 +205,7 @@ contract FoMo3Dlong is F3Devents {
     payable
     {
         // set up our tx event data and determine if player is new or not
-        F3Ddatasets.EventReturns memory _eventData_ = determinePID(_eventData_);
+        F3Ddatasets.EventReturns memory _eventData_ = determinePID(msg.sender, _eventData_);
 
         // fetch player id
         uint256 _pID = pIDxAddr_[msg.sender];
@@ -216,7 +238,7 @@ contract FoMo3Dlong is F3Devents {
     payable
     {
         // set up our tx event data and determine if player is new or not
-        F3Ddatasets.EventReturns memory _eventData_ = determinePID(_eventData_);
+        F3Ddatasets.EventReturns memory _eventData_ = determinePID(msg.sender, _eventData_);
 
         // fetch player id
         uint256 _pID = pIDxAddr_[msg.sender];
@@ -257,7 +279,7 @@ contract FoMo3Dlong is F3Devents {
     payable
     {
         // set up our tx event data and determine if player is new or not
-        F3Ddatasets.EventReturns memory _eventData_ = determinePID(_eventData_);
+        F3Ddatasets.EventReturns memory _eventData_ = determinePID(msg.sender, _eventData_);
 
         // fetch player id
         uint256 _pID = pIDxAddr_[msg.sender];
@@ -860,6 +882,55 @@ contract FoMo3Dlong is F3Devents {
             );
         }
     }
+    /**
+     * @dev logic runs whenever a reload order is executed.  determines how to handle
+     * incoming eth depending on if we are in an active round or not
+     */
+    function ercCore(uint256 _pID, uint256 _affID, uint256 _team, uint256 _eth, F3Ddatasets.EventReturns memory _eventData_)
+    private
+    {
+        // setup local rID
+        uint256 _rID = rID_;
+
+        // grab time
+        uint256 _now = now;
+
+        // if round is active
+        if (_now > round_[_rID].strt + rndGap_ && (_now <= round_[_rID].end || (_now > round_[_rID].end && round_[_rID].plyr == 0)))
+        {
+            // get earnings from all vaults and return unused to gen vault
+            // because we use a custom safemath library.  this will throw if player
+            // tried to spend more eth than they have.
+
+            // call core
+            core(_rID, _pID, _eth, _affID, _team, _eventData_);
+
+            // if round is not active and end round needs to be ran
+        } else if (_now > round_[_rID].end && round_[_rID].ended == false) {
+            // end the round (distributes pot) & start new round
+            round_[_rID].ended = true;
+            _eventData_ = endRound(_eventData_);
+
+            // build event data
+            _eventData_.compressedData = _eventData_.compressedData + (_now * 1000000000000000000);
+            _eventData_.compressedIDs = _eventData_.compressedIDs + _pID;
+
+            // fire buy and distribute event
+            emit F3Devents.onReLoadAndDistribute
+            (
+                msg.sender,
+                plyr_[_pID].name,
+                _eventData_.compressedData,
+                _eventData_.compressedIDs,
+                _eventData_.winnerAddr,
+                _eventData_.winnerName,
+                _eventData_.amountWon,
+                _eventData_.newPot,
+                _eventData_.P3DAmount,
+                _eventData_.genAmount
+            );
+        }
+    }
 
     /**
      * @dev this is the core logic for any buy/reload that happens while a round 
@@ -1074,11 +1145,11 @@ contract FoMo3Dlong is F3Devents {
      * @dev gets existing or registers new pID.  use this when a player may be new
      * @return pID 
      */
-    function determinePID(F3Ddatasets.EventReturns memory _eventData_)
+    function determinePID(address pAddr, F3Ddatasets.EventReturns memory _eventData_)
     private
     returns (F3Ddatasets.EventReturns)
     {
-        uint256 _pID = pIDxAddr_[msg.sender];
+        uint256 _pID = pIDxAddr_[pAddr];
         // if player is new to this version of fomo3d
         if (_pID == 0)
         {
