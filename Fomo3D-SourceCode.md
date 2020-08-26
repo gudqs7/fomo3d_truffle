@@ -349,4 +349,3 @@ let priceQuotation = await JUST.Bridges.Browser.contracts.Quick.read('iWantXKeys
 > keys 和 eth 应该是对应的, 而 eth 的变化规律如果画图的话应该是 指数级上升? 可以画成函数看看
 
 
-![wtf](https://github.com/gudqs7/fomo3d_truffle/blob/master/me.jpeg)
